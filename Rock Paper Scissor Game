@@ -1,0 +1,37 @@
+from random import choice
+import time
+
+def play_game():
+    print("\nWelcome To The Game !!\n\nGame Rules:\n- Rock beats Scissors\n- Scissors beat Paper\n- Paper beats Rock\n- Win: +1, Lose: -1, Tie: 0")
+    name = input("\nEnter your name: ")
+    print(f"\nHey,{name}! Your Game Begins")
+    score, wins, losses, draws = 0, 0, 0, 0
+    start_time = time.time()
+
+    while input("\nPlay a turn? (y/n): ").lower() == 'y':
+        player = input("\nEnter Rock / Paper / Scissors: ").lower()
+        if player not in ['rock', 'paper', 'scissors']:
+            print("Invalid choice! Try again.")
+            continue
+        computer = choice(['rock', 'paper', 'scissors'])
+        print(f"\nComputer chose: {computer}")
+        if player == computer:
+            print("\nIt's a draw!")
+            draws += 1
+        elif (player, computer) in [('rock', 'scissors'), ('scissors', 'paper'), ('paper', 'rock')]:
+            print("\nYou win!")
+            wins += 1
+            score += 1
+        else:
+            print("\nComputer wins!")
+            losses += 1
+            score -= 1
+        print(f"Current Score: {score}")
+
+    print(f"\nGame Over, {name}!")
+    print(f"\nFinal Score: {score}\n\nYou won {wins} times, \nComputer won {losses} times,\nThere were {draws} draws.")
+    print(f"\nTime Played: {time.time() - start_time:.2f}s.")
+    print(f"\nThank You For Playing ,Hope You Enjoyed The Game !!")
+
+if __name__ == "__main__":
+    play_game()
