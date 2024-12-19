@@ -31,7 +31,7 @@ def play_game():
     print(f"\nGame Over, {name}!")
     print(f"\nFinal Score: {score}\n\nYou won {wins} times, \nComputer won {losses} times,\nThere were {draws} draws.")
     print(f"\nTime Played: {time.time() - start_time:.2f}s.")
-    print(f"\nThank You For Playing ,Hope You Enjoyed The Game !!")
+    print(f"\nThank You For Playing {name}, Hope You Enjoyed The Game !!")
 
 if __name__ == "__main__":
     play_game()
